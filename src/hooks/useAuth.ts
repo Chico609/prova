@@ -93,13 +93,21 @@ export function useAuth() {
     try {
       setAuthState(prev => ({ ...prev, loading: true, error: null }))
       const { error } = await supabase.auth.signOut()
-      if (error) throw error
+      if (error) {
+        setAuthState(prev => ({
+          ...prev,
+          loading: false,
+          error: error.message,
+        }))
+        return { error: error.message }
+      }
       setAuthState({
         user: null,
         session: null,
         loading: false,
         error: null,
       })
+      return { error: null }
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : 'Sign out failed'
       setAuthState(prev => ({
@@ -107,7 +115,7 @@ export function useAuth() {
         loading: false,
         error: errorMessage,
       }))
-      throw error
+      return { error: errorMessage }
     }
   }
 

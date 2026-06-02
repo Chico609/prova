@@ -184,7 +184,7 @@ function LoginScreen({ onNavigate }: { onNavigate: (s: string) => void }) {
         type="email"
         placeholder="seu@email.com"
         value={email}
-        onChange={e => setEmail(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
         icon={<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>}
       />
 
@@ -193,7 +193,7 @@ function LoginScreen({ onNavigate }: { onNavigate: (s: string) => void }) {
         type={showPass ? 'text' : 'password'}
         placeholder="••••••••"
         value={password}
-        onChange={e => setPassword(e.target.value)}
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
         icon={<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>}
         rightEl={
           <button onClick={() => setShowPass(!showPass)} style={{ background: 'none', border: 'none', cursor: 'pointer', color: '#9994b0', padding: 0, display: 'flex', alignItems: 'center' }}>
@@ -331,7 +331,7 @@ function ForgotScreen({ onNavigate }: { onNavigate: (s: string) => void }) {
             Sem problemas. Digite seu email e enviaremos um link para criar uma nova senha.
           </p>
 
-          <InputField label="Email cadastrado" type="email" placeholder="seu@email.com" value={email} onChange={e => setEmail(e.target.value)}
+          <InputField label="Email cadastrado" type="email" placeholder="seu@email.com" value={email} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
             icon={<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>}
           />
 
